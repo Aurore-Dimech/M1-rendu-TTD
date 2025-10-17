@@ -79,3 +79,8 @@ class Article {
 }
 
 const displayCart = (cart: Cart) => cart
+
+const addArticleToCart = (cart: Cart, article: Article) => {
+    cart.content.push(article)
+    return cart
+}
