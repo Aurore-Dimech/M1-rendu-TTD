@@ -43,6 +43,19 @@ describe('Panier', () =>{
         //ASSERT
         expect(total).toEqual(50 + 20 + 10)
     })
+
+    test('devrait pouvoir obtenir une réduction de 10% si le total est égale à 100€', () =>{
+
+        //ARRANGE
+        const cart = new Cart([
+            new Article("Gold statue", 100)
+        ])
+
+        //ACT
+        const total = getCartTotal(cart)
+        //ASSERT
+        expect(total).toEqual(90)
+    })
 })
 
 
