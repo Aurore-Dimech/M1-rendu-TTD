@@ -1,25 +1,16 @@
 import { describe, test, expect } from "@jest/globals"
 
+const createOriginalCart = () => new Cart([
+    new Article("Table", 50),
+    new Article("Chaise", 20),
+    new Article("Tabouret", 10)
+])
+
 describe('Panier', () =>{
     test('devrait afficher le panier', () =>{
 
         //ARRANGE
-        const cart: Cart = new Cart(
-            [
-                new Article(
-                    "Table",
-                    50
-                ),
-                new Article(
-                    "Chaise",
-                    20
-                ),
-                new Article(
-                    "Tabouret",
-                    10
-                )
-            ]
-        )
+        const cart = createOriginalCart()
 
         //ACT
         const display = displayCart(cart)
@@ -31,27 +22,9 @@ describe('Panier', () =>{
     test('devrait pouvoir ajouter des éléments au panier le panier', () =>{
 
         //ARRANGE
-        const cart: Cart = new Cart(
-            [
-                new Article(
-                    "Table",
-                    50
-                ),
-                new Article(
-                    "Chaise",
-                    20
-                ),
-                new Article(
-                    "Tabouret",
-                    10
-                )
-            ]
-        )
+        const cart = createOriginalCart()
 
-        const painting: Article = new Article(
-            "Peinture",
-            35
-        )
+        const painting: Article = new Article("Peinture", 35)
 
         //ACT
         const display = addArticleToCart(cart, painting)
@@ -68,6 +41,10 @@ class Cart {
         public content: Article[]
     ) {}
 
+    withContent(article: Article): Cart {
+        return new Cart([...this.content, article])
+    }
+
 }
 
 class Article {
@@ -80,7 +57,4 @@ class Article {
 
 const displayCart = (cart: Cart) => cart
 
-const addArticleToCart = (cart: Cart, article: Article) => {
-    cart.content.push(article)
-    return cart
-}
+const addArticleToCart = (cart: Cart, article: Article) => cart.withContent(article)
