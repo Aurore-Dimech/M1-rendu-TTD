@@ -28,6 +28,37 @@ describe('Panier', () =>{
         expect(display.content.map(it => it.price)).toEqual([50, 20, 10])
     })
 
+    test('devrait pouvoir ajouter des éléments au panier le panier', () =>{
+
+        //ARRANGE
+        const cart: Cart = new Cart(
+            [
+                new Article(
+                    "Table",
+                    50
+                ),
+                new Article(
+                    "Chaise",
+                    20
+                ),
+                new Article(
+                    "Tabouret",
+                    10
+                )
+            ]
+        )
+
+        const painting: Article = new Article(
+            "Peinture",
+            35
+        )
+
+        //ACT
+        const display = addArticleToCart(cart, painting)
+        //ASSERT
+        expect(display.content.map(it => it.name)).toEqual(["Table", "Chaise", "Tabouret", "Peinture"])
+        expect(display.content.map(it => it.price)).toEqual([50, 20, 10, 35])
+    })
 })
 
 
