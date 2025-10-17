@@ -51,11 +51,24 @@ describe('Panier', () =>{
             new Article("Gold statue", 100)
         ])
 
-        //ACT
+        //
         const total = getCartTotal(cart)
-        //ASSERT
+        //ACT & ASSERT
         expect(total).toEqual(90)
     })
+
+    test('devrait renvoyer une erreur si le panier a un total négatif', () =>{
+
+        //ARRANGE
+        const cart = new Cart([
+            new Article("Arnaque", -10)
+        ])
+
+        //ACT & ASSERT
+        expect(getCartTotal(cart)).toThrow()
+    })
+
+    
 })
 
 
