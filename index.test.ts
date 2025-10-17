@@ -41,7 +41,7 @@ describe('Panier', () =>{
         //ACT
         const total = getCartTotal(cart)
         //ASSERT
-        expect(total).toEqual(50 + 20 + 10)
+        expect(total).toEqual((50 + 20 + 10).toFixed(2))
     })
 
     test('devrait pouvoir obtenir une réduction de 10% si le total est égale à 100€', () =>{
@@ -54,7 +54,7 @@ describe('Panier', () =>{
         //
         const total = getCartTotal(cart)
         //ACT & ASSERT
-        expect(total).toEqual(90)
+        expect(total).toEqual((90).toFixed(2))
     })
 
     test('devrait renvoyer une erreur si le panier a un total négatif', () =>{
@@ -75,7 +75,7 @@ describe('Panier', () =>{
 
 class Cart {
     constructor(
-        public content: Article[]
+        public readonly content: Article[]
     ) {}
 
     withContent(article: Article): Cart {
@@ -86,8 +86,8 @@ class Cart {
 
 class Article {
     constructor(
-        public name: string,
-        public price: number
+        public readonly name: string,
+        public readonly price: number
     ) {}
 
 }
@@ -104,13 +104,13 @@ const getCartTotal = (cart: Cart) => {
 
     if (total < 0) throw new Error('Total cannot be below 0')
 
-    total = calculateReduction(total)
+    const reduced = calculateReduction(total)
 
-    return total
+    return (Math.round(reduced * 100) / 100).toFixed(2)
 }
 
 const calculateReduction = (total: number): number => {
     if (total < 100) return total
 
-    return (total - (total * 0.1)) 
+    return total * 0.9 
 }
