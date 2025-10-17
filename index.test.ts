@@ -89,5 +89,13 @@ const getCartTotal = (cart: Cart) => {
         total += article.price
     })
 
+    total = calculateReduction(total)
+
     return total
+}
+
+const calculateReduction = (total: number): number => {
+    if (total < 100) return total
+
+    return (total - (total * 0.1)) 
 }
