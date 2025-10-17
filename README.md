@@ -21,3 +21,5 @@ Ainsi, un stud est utile pour imiter des éléments simples et le renvoie d'une 
 
 Pour illustrer, on utiliserait un stud lorsqu'on cherche à isoler un élément simple et obtenir une réponse précise (un envoi d'email par exemple), tandis qu'on utiliserait plutôt un fake dans le cas où l'on cherche à obtenir une vérification sur une fonctionnalité ayant un comportement plus complexe (vérifier qu'une personne existe bien dans une base de données après avoir été créée par exemple)
 
+## Pipeline CI/CD
+Je metterais en place un workflow CI, qui se déclencherais lors d'un push ou d'un PR, et qui installe les dépendances, exécute lint/build puis exécute `npm test` et publie le rapport de couverture comme artifact. Le job doit échouer si les tests échouent. J’ajouterais des checks obligatoires sur les branches protégées, un badge de statut dans le README et un job optionnel de déploiement/release conditionné au succès des tests.
