@@ -1,3 +1,4 @@
+# Rendu TTD
 ## Question 1
 **En une ou deux phrases, expliquez le principe du TDD et ses trois étapes clés.**
 
@@ -20,4 +21,3 @@ Ainsi, un stud est utile pour imiter des éléments simples et le renvoie d'une 
 
 Pour illustrer, on utiliserait un stud lorsqu'on cherche à isoler un élément simple et obtenir une réponse précise (un envoi d'email par exemple), tandis qu'on utiliserait plutôt un fake dans le cas où l'on cherche à obtenir une vérification sur une fonctionnalité ayant un comportement plus complexe (vérifier qu'une personne existe bien dans une base de données après avoir été créée par exemple)
 
-# M1-rendu-TTD
