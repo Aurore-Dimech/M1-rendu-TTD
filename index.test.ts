@@ -27,4 +27,24 @@ describe('Panier', () =>{
         expect(display.content.map(it => it.name)).toEqual(["Table", "Chaise", "Tabouret"])
         expect(display.content.map(it => it.price)).toEqual([50, 20, 10])
     })
+
 })
+
+
+
+class Cart {
+    constructor(
+        public content: Article[]
+    ) {}
+
+}
+
+class Article {
+    constructor(
+        public name: string,
+        public price: number
+    ) {}
+
+}
+
+const displayCart = (cart: Cart) => cart
