@@ -33,6 +33,16 @@ describe('Panier', () =>{
         expect(cart.content.map(it => it.price)).toEqual([50, 20, 10, 35])
     })
 
+    test('devrait pouvoir calculer le total du panier', () =>{
+
+        //ARRANGE
+        const cart = createOriginalCart()
+
+        //ACT
+        const total = getCartTotal(cart)
+        //ASSERT
+        expect(total).toEqual(50 + 20 + 10)
+    })
 })
 
 
