@@ -2,7 +2,9 @@
 ## Question 1
 **En une ou deux phrases, expliquez le principe du TDD et ses trois étapes clés.**
 
-Le TDD (_Test Driven Development_) est une méthodologie de développement consistant à vérifier la cohérence entre les attendus par rapport à des fonctionnalités et le code fournit, et ce par la vérifier leur mise en place par la création **préalable** de tests. Il se décline en trois étapes clés : rédaction d'un test (qui définit les résultats qu'on attend, et casse au début), rédaction du code (écrire le code le plus simple possible afin de valider le test), réfracto (amélioration du code et des fonctionnalités mises en place au-delà du passage des tests).
+Le TDD (_Test Driven Development_) est une méthodologie de développement consistant à vérifier la cohérence entre les attendus par rapport à des fonctionnalités et le code fournit, et ce par la vérifier leur mise en place par la création **préalable** de tests.
+
+Il se décline en trois étapes clés : rédaction d'un test (qui définit les résultats qu'on attend, et casse au début), rédaction du code (écrire le code le plus simple possible afin de valider le test), réfracto (amélioration du code et des fonctionnalités mises en place au-delà du passage des tests).
 
 ## Question 2
 **Citez deux avantages concrets du TDD.**
@@ -19,7 +21,7 @@ Un stud, quant à lui, ne renvoie qu'une seule et unique information.
 
 Ainsi, un stud est utile pour imiter des éléments simples et le renvoie d'une donnée unique. A l'inverse, le fake comprend beaucoup plus d'intelligence, mais aussi plus de codes, car il peut être utilisé afin de gérer des listes, des objets complexes, etc.
 
-Pour illustrer, on utiliserait un stud lorsqu'on cherche à isoler un élément simple et obtenir une réponse précise (un envoi d'email par exemple), tandis qu'on utiliserait plutôt un fake dans le cas où l'on cherche à obtenir une vérification sur une fonctionnalité ayant un comportement plus complexe (vérifier qu'une personne existe bien dans une base de données après avoir été créée par exemple)
+Pour illustrer, on utiliserait un stud lorsqu'on cherche à isoler un élément simple et obtenir une réponse précise (un envoi d'email par exemple), tandis qu'on utiliserait plutôt un fake dans le cas où l'on cherche à obtenir une vérification sur une fonctionnalité ayant un comportement plus complexe (vérifier qu'une personne existe bien dans une base de données après avoir été créée par exemple).
 
 ## Pipeline CI/CD
 Je mettrais en place un workflow CI, qui se déclencherais lors d'un push ou d'un PR, et qui installe les dépendances, exécute lint/build puis exécute `npm test` et publie le rapport de couverture comme artifact. Le job doit échouer si les tests échouent. J’ajouterais des checks obligatoires sur les branches protégées, un badge de statut dans le README et un job optionnel de déploiement/release conditionné au succès des tests.
