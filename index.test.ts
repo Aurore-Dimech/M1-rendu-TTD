@@ -22,12 +22,12 @@ describe('Panier', () =>{
     test('devrait pouvoir ajouter des éléments au panier le panier', () =>{
 
         //ARRANGE
-        const cart = createOriginalCart()
+        let cart = createOriginalCart()
 
         const painting: Article = new Article("Peinture", 35)
 
         //ACT
-        const cart = addArticleToCart(cart, painting)
+        cart = addArticleToCart(cart, painting)
         //ASSERT
         expect(cart.content.map(it => it.name)).toEqual(["Table", "Chaise", "Tabouret", "Peinture"])
         expect(cart.content.map(it => it.price)).toEqual([50, 20, 10, 35])
@@ -69,3 +69,12 @@ class Article {
 const displayCart = (cart: Cart) => cart
 
 const addArticleToCart = (cart: Cart, article: Article) => cart.withContent(article)
+
+const getCartTotal = (cart: Cart) => {
+    let total = 0
+    cart.content.forEach((article: Article) => {
+        total += article.price
+    })
+
+    return total
+}
