@@ -65,7 +65,7 @@ describe('Panier', () =>{
         ])
 
         //ACT & ASSERT
-        expect(getCartTotal(cart)).toThrow()
+        expect(() => getCartTotal(cart)).toThrow('Total cannot be below 0')
     })
 
     
@@ -101,6 +101,8 @@ const getCartTotal = (cart: Cart) => {
     cart.content.forEach((article: Article) => {
         total += article.price
     })
+
+    if (total < 0) throw new Error('Total cannot be below 0')
 
     total = calculateReduction(total)
 
