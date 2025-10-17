@@ -27,11 +27,12 @@ describe('Panier', () =>{
         const painting: Article = new Article("Peinture", 35)
 
         //ACT
-        const display = addArticleToCart(cart, painting)
+        const cart = addArticleToCart(cart, painting)
         //ASSERT
-        expect(display.content.map(it => it.name)).toEqual(["Table", "Chaise", "Tabouret", "Peinture"])
-        expect(display.content.map(it => it.price)).toEqual([50, 20, 10, 35])
+        expect(cart.content.map(it => it.name)).toEqual(["Table", "Chaise", "Tabouret", "Peinture"])
+        expect(cart.content.map(it => it.price)).toEqual([50, 20, 10, 35])
     })
+
 })
 
 
